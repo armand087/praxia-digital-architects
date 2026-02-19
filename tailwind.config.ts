@@ -13,6 +13,9 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -57,6 +60,18 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        // PRAXIA brand tokens
+        praxia: {
+          black: "hsl(var(--praxia-black))",
+          dark: "hsl(var(--praxia-dark))",
+          blue: "hsl(var(--praxia-blue))",
+          "blue-light": "hsl(var(--praxia-blue-light))",
+          "blue-glow": "hsl(var(--praxia-blue-glow))",
+          surface: "hsl(var(--praxia-surface))",
+          "surface-2": "hsl(var(--praxia-surface-2))",
+          border: "hsl(var(--praxia-border))",
+          muted: "hsl(var(--praxia-text-muted))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -65,25 +80,37 @@ export default {
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+        shimmer: {
+          "0%": { backgroundPosition: "-200% center" },
+          "100%": { backgroundPosition: "200% center" },
+        },
+        "fade-up": {
+          "0%": { opacity: "0", transform: "translateY(20px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        "fade-in": {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        shimmer: "shimmer 4s linear infinite",
+        "fade-up": "fade-up 0.6s ease-out forwards",
+        "fade-in": "fade-in 0.6s ease-out forwards",
+      },
+      backgroundImage: {
+        "gradient-hero": "linear-gradient(135deg, hsl(220 15% 5%) 0%, hsl(221 50% 12%) 50%, hsl(220 15% 5%) 100%)",
+        "gradient-blue": "linear-gradient(135deg, hsl(var(--praxia-blue)), hsl(var(--praxia-blue-light)))",
+        "gradient-card": "linear-gradient(135deg, hsl(var(--praxia-surface)), hsl(var(--praxia-surface-2)))",
       },
     },
   },
