@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Linkedin, Twitter, Mail } from "lucide-react";
+import praxiaLogo from "@/assets/praxia-logo.png";
 
 const navLinks = [
   { label: "Inicio", href: "/" },
@@ -16,14 +17,12 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Brand */}
           <div className="flex flex-col gap-4">
-            <Link to="/" className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-sm bg-gradient-blue flex items-center justify-center">
-                <span className="text-white font-black text-sm tracking-tight">P</span>
-              </div>
-              <div className="flex flex-col">
-                <span className="text-white font-bold text-lg leading-none tracking-tight">PRAXIA</span>
-                <span className="text-praxia-muted text-[10px] leading-none tracking-widest uppercase">Inteligencia Aplicada</span>
-              </div>
+            <Link to="/" className="flex items-center">
+              <img
+                src={praxiaLogo}
+                alt="PRAXIA Inteligencia Aplicada"
+                className="h-10 w-auto object-contain"
+              />
             </Link>
             <p className="text-praxia-muted text-sm leading-relaxed max-w-xs">
               Transformamos empresas en sistemas digitales medibles y escalables. Estrategia, automatización y tecnología aplicada.
