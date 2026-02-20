@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
+import praxiaLogo from "@/assets/praxia-logo.png";
 
 const navLinks = [
   { label: "Inicio", href: "/" },
@@ -35,14 +36,12 @@ export default function Navbar() {
     >
       <nav className="container mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2 group">
-          <div className="w-8 h-8 rounded-sm bg-gradient-blue flex items-center justify-center">
-            <span className="text-white font-black text-sm tracking-tight">P</span>
-          </div>
-          <div className="flex flex-col">
-            <span className="text-white font-bold text-lg leading-none tracking-tight">PRAXIA</span>
-            <span className="text-praxia-muted text-[10px] leading-none tracking-widest uppercase">Inteligencia Aplicada</span>
-          </div>
+        <Link to="/" className="flex items-center group">
+          <img
+            src={praxiaLogo}
+            alt="PRAXIA Inteligencia Aplicada"
+            className="h-9 w-auto object-contain"
+          />
         </Link>
 
         {/* Desktop nav */}
