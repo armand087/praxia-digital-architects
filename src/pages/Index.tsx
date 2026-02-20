@@ -36,8 +36,8 @@ function useScrollReveal() {
     const el = ref.current;
     if (!el) return;
     const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) el.classList.add("visible"); },
-      { threshold: 0.12 }
+      ([entry]) => { if (entry.isIntersecting) { el.classList.add("visible"); observer.disconnect(); } },
+      { threshold: 0.08 }
     );
     observer.observe(el);
     return () => observer.disconnect();
@@ -250,7 +250,7 @@ function ROICalculator() {
 function DashboardDemo() {
   const ref = useScrollReveal();
   return (
-    <section className="py-24 bg-praxia-dark" ref={ref}>
+    <section className="py-24 bg-praxia-dark">
       <div className="container mx-auto max-w-7xl px-6 fade-in-up" ref={ref}>
         <div className="text-center mb-12">
           <span className="inline-block px-3 py-1 rounded-full border border-praxia-blue/30 text-xs text-praxia-muted tracking-widest uppercase mb-4">
@@ -403,8 +403,8 @@ export default function Index() {
       {/* ── PROBLEMA ──────────────────────────────────────────────────────── */}
       <section className="py-24 bg-praxia-dark relative overflow-hidden">
         <div className="absolute inset-0 dot-grid opacity-40" />
-        <div className="container mx-auto max-w-5xl px-6 relative" ref={problemaRef}>
-          <div className="fade-in-up">
+        <div className="container mx-auto max-w-5xl px-6 relative fade-in-up" ref={problemaRef}>
+          <div>
             <div className="max-w-3xl mx-auto text-center mb-16">
               <span className="inline-block px-3 py-1 rounded-full border border-red-900/40 text-xs text-red-400 tracking-widest uppercase mb-6">
                 El problema real
@@ -438,8 +438,8 @@ export default function Index() {
 
       {/* ── SOLUCIÓN ──────────────────────────────────────────────────────── */}
       <section className="py-24 bg-praxia-black">
-        <div className="container mx-auto max-w-7xl px-6" ref={solucionRef}>
-          <div className="fade-in-up">
+        <div className="container mx-auto max-w-7xl px-6 fade-in-up" ref={solucionRef}>
+          <div>
             <div className="text-center mb-16">
               <span className="inline-block px-3 py-1 rounded-full border border-praxia-blue/30 text-xs text-praxia-muted tracking-widest uppercase mb-4">
                 Nuestra propuesta
@@ -471,8 +471,8 @@ export default function Index() {
 
       {/* ── METODOLOGÍA ───────────────────────────────────────────────────── */}
       <section className="py-24 bg-praxia-dark">
-        <div className="container mx-auto max-w-5xl px-6" ref={metodoRef}>
-          <div className="fade-in-up">
+        <div className="container mx-auto max-w-5xl px-6 fade-in-up" ref={metodoRef}>
+          <div>
             <div className="text-center mb-16">
               <span className="inline-block px-3 py-1 rounded-full border border-praxia-blue/30 text-xs text-praxia-muted tracking-widest uppercase mb-4">
                 Proceso
@@ -522,8 +522,8 @@ export default function Index() {
 
       {/* ── SERVICIOS ─────────────────────────────────────────────────────── */}
       <section className="py-24 bg-praxia-black">
-        <div className="container mx-auto max-w-7xl px-6" ref={serviciosRef}>
-          <div className="fade-in-up">
+        <div className="container mx-auto max-w-7xl px-6 fade-in-up" ref={serviciosRef}>
+          <div>
             <div className="text-center mb-16">
               <span className="inline-block px-3 py-1 rounded-full border border-praxia-blue/30 text-xs text-praxia-muted tracking-widest uppercase mb-4">
                 Servicios
@@ -572,9 +572,9 @@ export default function Index() {
       </section>
 
       {/* ── DIFERENCIADOR ─────────────────────────────────────────────────── */}
-      <section className="py-24 bg-praxia-surface border-y border-praxia-border relative overflow-hidden" ref={difRef}>
+      <section className="py-24 bg-praxia-surface border-y border-praxia-border relative overflow-hidden">
         <div className="absolute inset-0 grid-overlay opacity-30" />
-        <div className="container mx-auto max-w-4xl px-6 text-center relative fade-in-up">
+        <div className="container mx-auto max-w-4xl px-6 text-center relative fade-in-up" ref={difRef}>
           <span className="inline-block px-3 py-1 rounded-full border border-praxia-blue/30 text-xs text-praxia-muted tracking-widest uppercase mb-8">
             Por qué PRAXIA
           </span>
@@ -603,8 +603,8 @@ export default function Index() {
       <DashboardDemo />
 
       {/* ── CASOS / RESULTADOS ────────────────────────────────────────────── */}
-      <section className="py-24 bg-praxia-surface border-t border-praxia-border" ref={casosRef}>
-        <div className="container mx-auto max-w-7xl px-6 fade-in-up">
+      <section className="py-24 bg-praxia-surface border-t border-praxia-border">
+        <div className="container mx-auto max-w-7xl px-6 fade-in-up" ref={casosRef}>
           <div className="text-center mb-16">
             <span className="inline-block px-3 py-1 rounded-full border border-amber-900/40 text-xs text-amber-400 tracking-widest uppercase mb-4">
               Casos — Demo
