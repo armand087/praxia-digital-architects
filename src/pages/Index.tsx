@@ -28,6 +28,11 @@ import {
 } from "recharts";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import heroBg from "@/assets/hero-bg.jpg";
+import problemaBg from "@/assets/problema-bg.jpg";
+import dashboardPreview from "@/assets/dashboard-preview.jpg";
+import teamStrategy from "@/assets/team-strategy.jpg";
+import architectureBg from "@/assets/architecture-bg.jpg";
 
 // ─── Scroll reveal hook ───────────────────────────────────────────────────────
 function useScrollReveal() {
@@ -250,8 +255,14 @@ function ROICalculator() {
 function DashboardDemo() {
   const ref = useScrollReveal();
   return (
-    <section className="py-24 bg-praxia-dark">
-      <div className="container mx-auto max-w-7xl px-6 fade-in-up" ref={ref}>
+    <section className="py-24 bg-praxia-dark relative overflow-hidden">
+      {/* Dashboard background image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
+        style={{ backgroundImage: `url(${dashboardPreview})` }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-praxia-dark/95 via-praxia-dark/80 to-praxia-dark" />
+      <div className="container mx-auto max-w-7xl px-6 fade-in-up relative" ref={ref}>
         <div className="text-center mb-12">
           <span className="inline-block px-3 py-1 rounded-full border border-praxia-blue/30 text-xs text-praxia-muted tracking-widest uppercase mb-4">
             Demo — Vista de cliente
@@ -267,7 +278,7 @@ function DashboardDemo() {
         {/* KPI cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
           {kpiCards.map((kpi) => (
-            <div key={kpi.label} className="bg-praxia-surface border border-praxia-border rounded-sm p-5">
+            <div key={kpi.label} className="bg-praxia-surface/80 backdrop-blur-sm border border-praxia-border rounded-sm p-5 hover:border-praxia-blue/40 transition-all duration-300 hover:-translate-y-0.5">
               <div className="flex items-center justify-between mb-3">
                 <span className="text-xs text-praxia-muted uppercase tracking-widest">{kpi.label}</span>
                 <kpi.icon size={16} className="text-praxia-muted" />
@@ -288,7 +299,7 @@ function DashboardDemo() {
 
         {/* Charts */}
         <div className="grid md:grid-cols-2 gap-6">
-          <div className="bg-praxia-surface border border-praxia-border rounded-sm p-6">
+          <div className="bg-praxia-surface/80 backdrop-blur-sm border border-praxia-border rounded-sm p-6">
             <p className="text-white font-semibold mb-1">Ingresos Mensuales (MXN)</p>
             <p className="text-xs text-praxia-muted mb-4">Comparativo antes vs después de implementación</p>
             <ResponsiveContainer width="100%" height={200}>
@@ -313,7 +324,7 @@ function DashboardDemo() {
             </ResponsiveContainer>
           </div>
 
-          <div className="bg-praxia-surface border border-praxia-border rounded-sm p-6">
+          <div className="bg-praxia-surface/80 backdrop-blur-sm border border-praxia-border rounded-sm p-6">
             <p className="text-white font-semibold mb-1">Pipeline Comercial</p>
             <p className="text-xs text-praxia-muted mb-4">Leads generados vs cerrados por mes</p>
             <ResponsiveContainer width="100%" height={200}>
@@ -352,19 +363,27 @@ export default function Index() {
 
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-praxia-black">
+        {/* Background image with overlay */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${heroBg})` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-praxia-black/80 via-praxia-black/70 to-praxia-black" />
         {/* Grid overlay */}
-        <div className="absolute inset-0 grid-overlay opacity-60" />
+        <div className="absolute inset-0 grid-overlay opacity-40" />
+        {/* Scan line */}
+        <div className="scan-line" />
         {/* Gradient blobs */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-praxia-blue/10 blur-3xl pointer-events-none" />
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full bg-praxia-blue-light/8 blur-3xl pointer-events-none" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-praxia-blue/15 blur-3xl pointer-events-none float" />
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full bg-praxia-blue-light/10 blur-3xl pointer-events-none" style={{ animationDelay: "3s" }} />
 
         <div className="relative container mx-auto max-w-5xl px-6 text-center pt-24 pb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-praxia-border bg-praxia-surface/50 text-xs text-praxia-muted tracking-widest uppercase mb-8">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-praxia-border bg-praxia-surface/60 backdrop-blur-sm text-xs text-praxia-muted tracking-widest uppercase mb-8 stagger-child">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 pulse-blue" />
             Diagnóstico gratuito disponible
           </div>
 
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight mb-6 tracking-tight">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight mb-6 tracking-tight stagger-child">
             <span className="text-white">Transformamos tu negocio</span>
             <br />
             <span className="shimmer-text">en un sistema digital</span>
@@ -372,27 +391,27 @@ export default function Index() {
             <span className="text-white">medible y escalable</span>
           </h1>
 
-          <p className="text-lg md:text-xl text-praxia-muted max-w-2xl mx-auto mb-10 leading-relaxed">
+          <p className="text-lg md:text-xl text-praxia-muted max-w-2xl mx-auto mb-10 leading-relaxed stagger-child">
             Estrategia, automatización y tecnología aplicada para empresas que quieren operar con orden y crecer con datos.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center stagger-child">
             <Link
               to="/contacto"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-sm bg-gradient-blue text-white font-bold text-base hover:opacity-90 transition-all glow-blue"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-sm bg-gradient-blue text-white font-bold text-base hover:opacity-90 hover:scale-105 transition-all glow-blue"
             >
               Agendar Diagnóstico Estratégico <ArrowRight size={18} />
             </Link>
             <Link
               to="/metodologia"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-sm border border-praxia-border text-white font-semibold text-base hover:border-praxia-blue/60 hover:bg-praxia-surface/40 transition-all"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-sm border border-praxia-border bg-praxia-surface/40 backdrop-blur-sm text-white font-semibold text-base hover:border-praxia-blue/60 hover:bg-praxia-surface/60 transition-all"
             >
               Ver Cómo Trabajamos <ChevronRight size={18} />
             </Link>
           </div>
 
           {/* Trust indicators */}
-          <div className="mt-16 pt-8 border-t border-praxia-border flex flex-wrap justify-center gap-8 text-praxia-muted text-sm">
+          <div className="mt-16 pt-8 border-t border-praxia-border/50 flex flex-wrap justify-center gap-8 text-praxia-muted text-sm stagger-child">
             <div className="flex items-center gap-2"><CheckCircle2 size={14} className="text-praxia-blue-light" /> Sin dependencia tecnológica</div>
             <div className="flex items-center gap-2"><CheckCircle2 size={14} className="text-praxia-blue-light" /> Implementación en 30–90 días</div>
             <div className="flex items-center gap-2"><CheckCircle2 size={14} className="text-praxia-blue-light" /> Software de alto soporte</div>
@@ -402,7 +421,13 @@ export default function Index() {
 
       {/* ── PROBLEMA ──────────────────────────────────────────────────────── */}
       <section className="py-24 bg-praxia-dark relative overflow-hidden">
-        <div className="absolute inset-0 dot-grid opacity-40" />
+        {/* Imagen de fondo: escritorio caótico */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-15"
+          style={{ backgroundImage: `url(${problemaBg})` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-praxia-dark via-praxia-dark/80 to-praxia-dark" />
+        <div className="absolute inset-0 dot-grid opacity-30" />
         <div className="container mx-auto max-w-5xl px-6 relative fade-in-up" ref={problemaRef}>
           <div>
             <div className="max-w-3xl mx-auto text-center mb-16">
@@ -418,9 +443,9 @@ export default function Index() {
               {painPoints.map((point, i) => (
                 <div
                   key={i}
-                  className="flex items-center gap-4 p-4 border border-red-900/30 bg-red-950/10 rounded-sm"
+                  className="flex items-center gap-4 p-4 border border-red-900/30 bg-red-950/10 rounded-sm hover:border-red-700/50 hover:bg-red-950/20 transition-all duration-300 group"
                 >
-                  <AlertTriangle size={18} className="text-red-400 flex-shrink-0" />
+                  <AlertTriangle size={18} className="text-red-400 flex-shrink-0 group-hover:scale-110 transition-transform" />
                   <span className="text-white font-semibold text-lg">{point}</span>
                 </div>
               ))}
@@ -437,8 +462,16 @@ export default function Index() {
       </section>
 
       {/* ── SOLUCIÓN ──────────────────────────────────────────────────────── */}
-      <section className="py-24 bg-praxia-black">
-        <div className="container mx-auto max-w-7xl px-6 fade-in-up" ref={solucionRef}>
+      <section className="py-24 bg-praxia-black relative overflow-hidden">
+        {/* Team image side panel */}
+        <div className="absolute right-0 top-0 bottom-0 w-1/3 hidden lg:block">
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-25"
+            style={{ backgroundImage: `url(${teamStrategy})` }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-praxia-black via-praxia-black/60 to-transparent" />
+        </div>
+        <div className="container mx-auto max-w-7xl px-6 fade-in-up relative" ref={solucionRef}>
           <div>
             <div className="text-center mb-16">
               <span className="inline-block px-3 py-1 rounded-full border border-praxia-blue/30 text-xs text-praxia-muted tracking-widest uppercase mb-4">
@@ -456,9 +489,9 @@ export default function Index() {
               {solutions.map(({ icon: Icon, label }, i) => (
                 <div
                   key={i}
-                  className="group flex items-center gap-4 p-5 border border-praxia-border bg-praxia-surface rounded-sm hover:border-praxia-blue/50 hover:bg-praxia-surface-2 transition-all duration-300"
+                  className="group flex items-center gap-4 p-5 border border-praxia-border bg-praxia-surface rounded-sm hover:border-praxia-blue/50 hover:bg-praxia-surface-2 hover:-translate-y-0.5 transition-all duration-300"
                 >
-                  <div className="w-10 h-10 rounded-sm bg-praxia-blue/10 border border-praxia-blue/20 flex items-center justify-center flex-shrink-0 group-hover:bg-praxia-blue/20 transition-colors">
+                  <div className="w-10 h-10 rounded-sm bg-praxia-blue/10 border border-praxia-blue/20 flex items-center justify-center flex-shrink-0 group-hover:bg-praxia-blue/20 group-hover:scale-110 transition-all">
                     <Icon size={18} className="text-praxia-blue-light" />
                   </div>
                   <span className="text-white font-medium">{label}</span>
@@ -470,8 +503,14 @@ export default function Index() {
       </section>
 
       {/* ── METODOLOGÍA ───────────────────────────────────────────────────── */}
-      <section className="py-24 bg-praxia-dark">
-        <div className="container mx-auto max-w-5xl px-6 fade-in-up" ref={metodoRef}>
+      <section className="py-24 bg-praxia-dark relative overflow-hidden">
+        {/* Architecture background */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10"
+          style={{ backgroundImage: `url(${architectureBg})` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-praxia-dark/90 to-praxia-dark" />
+        <div className="container mx-auto max-w-5xl px-6 fade-in-up relative" ref={metodoRef}>
           <div>
             <div className="text-center mb-16">
               <span className="inline-block px-3 py-1 rounded-full border border-praxia-blue/30 text-xs text-praxia-muted tracking-widest uppercase mb-4">
@@ -489,15 +528,15 @@ export default function Index() {
 
               <div className="flex flex-col gap-8">
                 {metodologia.map((fase, i) => (
-                  <div key={i} className="flex gap-8 md:gap-12 items-start">
+                  <div key={i} className="flex gap-8 md:gap-12 items-start group">
                     <div className="flex-shrink-0 w-16 md:w-24 flex flex-col items-center">
-                      <div className="w-8 h-8 rounded-full border-2 border-praxia-blue bg-praxia-black flex items-center justify-center z-10">
+                      <div className="w-8 h-8 rounded-full border-2 border-praxia-blue bg-praxia-black flex items-center justify-center z-10 group-hover:bg-praxia-blue/20 group-hover:scale-110 transition-all">
                         <span className="text-praxia-blue text-xs font-black">{i + 1}</span>
                       </div>
                     </div>
-                    <div className="flex-1 pb-8">
+                    <div className="flex-1 pb-8 border-b border-praxia-border/30 group-hover:border-praxia-blue/20 transition-colors">
                       <span className="text-praxia-blue text-xs font-mono mb-1 block">{fase.num}</span>
-                      <h3 className="text-xl font-bold text-white mb-2">{fase.title}</h3>
+                      <h3 className="text-xl font-bold text-white mb-2 group-hover:text-praxia-blue-light transition-colors">{fase.title}</h3>
                       <p className="text-praxia-muted leading-relaxed">{fase.desc}</p>
                     </div>
                   </div>
@@ -573,6 +612,11 @@ export default function Index() {
 
       {/* ── DIFERENCIADOR ─────────────────────────────────────────────────── */}
       <section className="py-24 bg-praxia-surface border-y border-praxia-border relative overflow-hidden">
+        {/* Architecture background */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-8"
+          style={{ backgroundImage: `url(${architectureBg})` }}
+        />
         <div className="absolute inset-0 grid-overlay opacity-30" />
         <div className="container mx-auto max-w-4xl px-6 text-center relative fade-in-up" ref={difRef}>
           <span className="inline-block px-3 py-1 rounded-full border border-praxia-blue/30 text-xs text-praxia-muted tracking-widest uppercase mb-8">
@@ -589,9 +633,9 @@ export default function Index() {
               { title: "Sin dependencia", body: "No generamos dependencia. Creamos sistemas que tu equipo puede operar de forma autónoma." },
               { title: "Sistemas, no proyectos", body: "Entregamos operación, no código. Cada implementación es un sistema vivo y medible." },
             ].map(({ title, body }, i) => (
-              <div key={i} className="border border-praxia-border rounded-sm p-6 bg-praxia-dark">
-                <div className="w-2 h-2 rounded-full bg-praxia-blue mb-4" />
-                <h3 className="text-white font-bold mb-2">{title}</h3>
+              <div key={i} className="border border-praxia-border rounded-sm p-6 bg-praxia-dark hover:border-praxia-blue/40 hover:-translate-y-1 transition-all duration-300 group">
+                <div className="w-2 h-2 rounded-full bg-praxia-blue mb-4 group-hover:scale-150 transition-transform" />
+                <h3 className="text-white font-bold mb-2 group-hover:text-praxia-blue-light transition-colors">{title}</h3>
                 <p className="text-praxia-muted text-sm">{body}</p>
               </div>
             ))}
