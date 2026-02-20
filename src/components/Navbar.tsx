@@ -33,7 +33,7 @@ export default function Navbar() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
           ? "bg-praxia-dark/95 backdrop-blur-md border-b border-praxia-border shadow-lg"
-          : "bg-transparent"
+          : "bg-praxia-black/10 backdrop-blur-sm"
       }`}
     >
       <nav className="container mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
@@ -52,9 +52,9 @@ export default function Navbar() {
             <Link
               key={link.href}
               to={link.href}
-              className={`text-sm font-medium transition-colors hover:text-white ${
+              className={`text-sm font-medium transition-colors hover:text-foreground ${
                 location.pathname === link.href
-                  ? "text-white"
+                  ? "text-foreground"
                   : "text-praxia-muted"
               }`}
             >

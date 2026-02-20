@@ -159,7 +159,7 @@ function ROICalculator() {
           <span className="inline-block px-3 py-1 rounded-full border border-praxia-blue/30 text-xs text-praxia-muted tracking-widest uppercase mb-4">
             Calculadora de Diagnóstico
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             ¿Cuánto te cuesta el desorden operativo?
           </h2>
           <p className="text-praxia-muted max-w-xl mx-auto">
@@ -172,7 +172,7 @@ function ROICalculator() {
           <div className="bg-praxia-surface-2 border border-praxia-border rounded-sm p-8 flex flex-col gap-8">
             <div>
               <div className="flex justify-between mb-2">
-                <label className="text-sm text-white font-medium">Personas en tu equipo</label>
+                <label className="text-sm text-foreground font-medium">Personas en tu equipo</label>
                 <span className="text-praxia-blue font-bold">{teamSize}</span>
               </div>
               <input
@@ -187,7 +187,7 @@ function ROICalculator() {
 
             <div>
               <div className="flex justify-between mb-2">
-                <label className="text-sm text-white font-medium">Facturación mensual (miles MXN)</label>
+                <label className="text-sm text-foreground font-medium">Facturación mensual (miles MXN)</label>
                 <span className="text-praxia-blue font-bold">${monthlyRevenue}K</span>
               </div>
               <input
@@ -202,7 +202,7 @@ function ROICalculator() {
 
             <div>
               <div className="flex justify-between mb-2">
-                <label className="text-sm text-white font-medium">Herramientas digitales sin integrar</label>
+                <label className="text-sm text-foreground font-medium">Herramientas digitales sin integrar</label>
                 <span className="text-praxia-blue font-bold">{toolsCount}</span>
               </div>
               <input
@@ -267,7 +267,7 @@ function DashboardDemo() {
           <span className="inline-block px-3 py-1 rounded-full border border-praxia-blue/30 text-xs text-praxia-muted tracking-widest uppercase mb-4">
             Demo — Vista de cliente
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             Así ve tu empresa después de implementar
           </h2>
           <p className="text-praxia-muted max-w-xl mx-auto">
@@ -286,7 +286,7 @@ function DashboardDemo() {
               <div className="flex items-end gap-3">
                 <div>
                   <p className="text-xs text-praxia-muted mb-0.5">Antes</p>
-                  <p className="text-lg font-semibold text-white line-through opacity-50">{kpi.before}</p>
+                  <p className="text-lg font-semibold text-foreground line-through opacity-50">{kpi.before}</p>
                 </div>
                 <div>
                   <p className="text-xs text-praxia-muted mb-0.5">Después</p>
@@ -300,7 +300,7 @@ function DashboardDemo() {
         {/* Charts */}
         <div className="grid md:grid-cols-2 gap-6">
           <div className="bg-praxia-surface/80 backdrop-blur-sm border border-praxia-border rounded-sm p-6">
-            <p className="text-white font-semibold mb-1">Ingresos Mensuales (MXN)</p>
+            <p className="text-foreground font-semibold mb-1">Ingresos Mensuales (MXN)</p>
             <p className="text-xs text-praxia-muted mb-4">Comparativo antes vs después de implementación</p>
             <ResponsiveContainer width="100%" height={200}>
               <AreaChart data={revenueData}>
@@ -314,10 +314,10 @@ function DashboardDemo() {
                     <stop offset="95%" stopColor="hsl(214 89% 52%)" stopOpacity={0} />
                   </linearGradient>
                 </defs>
-                <CartesianGrid strokeDasharray="3 3" stroke="hsl(220 15% 18%)" />
-                <XAxis dataKey="mes" tick={{ fill: "hsl(220 10% 55%)", fontSize: 12 }} axisLine={false} tickLine={false} />
-                <YAxis tick={{ fill: "hsl(220 10% 55%)", fontSize: 12 }} axisLine={false} tickLine={false} />
-                <Tooltip contentStyle={{ background: "hsl(220 15% 10%)", border: "1px solid hsl(220 15% 18%)", borderRadius: 4, color: "#fff" }} />
+                <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--praxia-border))" />
+                <XAxis dataKey="mes" tick={{ fill: "hsl(var(--praxia-text-muted))", fontSize: 12 }} axisLine={false} tickLine={false} />
+                <YAxis tick={{ fill: "hsl(var(--praxia-text-muted))", fontSize: 12 }} axisLine={false} tickLine={false} />
+                <Tooltip contentStyle={{ background: "hsl(var(--praxia-surface))", border: "1px solid hsl(var(--praxia-border))", borderRadius: 4, color: "hsl(var(--foreground))" }} />
                 <Area type="monotone" dataKey="antes" stroke="hsl(220 15% 45%)" fill="url(#colorAntes)" name="Antes" />
                 <Area type="monotone" dataKey="despues" stroke="hsl(214 89% 52%)" fill="url(#colorDespues)" name="Después" />
               </AreaChart>
@@ -325,14 +325,14 @@ function DashboardDemo() {
           </div>
 
           <div className="bg-praxia-surface/80 backdrop-blur-sm border border-praxia-border rounded-sm p-6">
-            <p className="text-white font-semibold mb-1">Pipeline Comercial</p>
+            <p className="text-foreground font-semibold mb-1">Pipeline Comercial</p>
             <p className="text-xs text-praxia-muted mb-4">Leads generados vs cerrados por mes</p>
             <ResponsiveContainer width="100%" height={200}>
               <BarChart data={leadsData}>
-                <CartesianGrid strokeDasharray="3 3" stroke="hsl(220 15% 18%)" />
-                <XAxis dataKey="mes" tick={{ fill: "hsl(220 10% 55%)", fontSize: 12 }} axisLine={false} tickLine={false} />
-                <YAxis tick={{ fill: "hsl(220 10% 55%)", fontSize: 12 }} axisLine={false} tickLine={false} />
-                <Tooltip contentStyle={{ background: "hsl(220 15% 10%)", border: "1px solid hsl(220 15% 18%)", borderRadius: 4, color: "#fff" }} />
+                <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--praxia-border))" />
+                <XAxis dataKey="mes" tick={{ fill: "hsl(var(--praxia-text-muted))", fontSize: 12 }} axisLine={false} tickLine={false} />
+                <YAxis tick={{ fill: "hsl(var(--praxia-text-muted))", fontSize: 12 }} axisLine={false} tickLine={false} />
+                <Tooltip contentStyle={{ background: "hsl(var(--praxia-surface))", border: "1px solid hsl(var(--praxia-border))", borderRadius: 4, color: "hsl(var(--foreground))" }} />
                 <Bar dataKey="leads" fill="hsl(220 15% 35%)" name="Leads" radius={[2, 2, 0, 0]} />
                 <Bar dataKey="cerrados" fill="hsl(214 89% 52%)" name="Cerrados" radius={[2, 2, 0, 0]} />
               </BarChart>
@@ -368,7 +368,7 @@ export default function Index() {
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${heroBg})` }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-praxia-black/80 via-praxia-black/70 to-praxia-black" />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, hsl(var(--praxia-black) / 0.8), hsl(var(--praxia-black) / 0.7), hsl(var(--praxia-black)))" }} />
         {/* Grid overlay */}
         <div className="absolute inset-0 grid-overlay opacity-40" />
         {/* Scan line */}
@@ -384,11 +384,11 @@ export default function Index() {
           </div>
 
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight mb-6 tracking-tight stagger-child">
-            <span className="text-white">Transformamos tu negocio</span>
+            <span className="text-foreground">Transformamos tu negocio</span>
             <br />
             <span className="shimmer-text">en un sistema digital</span>
             <br />
-            <span className="text-white">medible y escalable</span>
+            <span className="text-foreground">medible y escalable</span>
           </h1>
 
           <p className="text-lg md:text-xl text-praxia-muted max-w-2xl mx-auto mb-10 leading-relaxed stagger-child">
@@ -404,7 +404,7 @@ export default function Index() {
             </Link>
             <Link
               to="/metodologia"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-sm border border-praxia-border bg-praxia-surface/40 backdrop-blur-sm text-white font-semibold text-base hover:border-praxia-blue/60 hover:bg-praxia-surface/60 transition-all"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-sm border border-praxia-border bg-praxia-surface/40 backdrop-blur-sm text-foreground font-semibold text-base hover:border-praxia-blue/60 hover:bg-praxia-surface/60 transition-all"
             >
               Ver Cómo Trabajamos <ChevronRight size={18} />
             </Link>
@@ -434,7 +434,7 @@ export default function Index() {
               <span className="inline-block px-3 py-1 rounded-full border border-red-900/40 text-xs text-red-400 tracking-widest uppercase mb-6">
                 El problema real
               </span>
-              <h2 className="text-3xl md:text-5xl font-black text-white leading-tight mb-6">
+              <h2 className="text-3xl md:text-5xl font-black text-foreground leading-tight mb-6">
                 La mayoría de las empresas no tiene un sistema, tiene parches.
               </h2>
             </div>
@@ -446,13 +446,13 @@ export default function Index() {
                   className="flex items-center gap-4 p-4 border border-red-900/30 bg-red-950/10 rounded-sm hover:border-red-700/50 hover:bg-red-950/20 transition-all duration-300 group"
                 >
                   <AlertTriangle size={18} className="text-red-400 flex-shrink-0 group-hover:scale-110 transition-transform" />
-                  <span className="text-white font-semibold text-lg">{point}</span>
+                  <span className="text-foreground font-semibold text-lg">{point}</span>
                 </div>
               ))}
             </div>
 
             <div className="text-center">
-              <p className="text-2xl md:text-3xl font-black text-white">
+              <p className="text-2xl md:text-3xl font-black text-foreground">
                 Eso no es crecimiento.{" "}
                 <span className="text-red-400">Es improvisación.</span>
               </p>
@@ -477,7 +477,7 @@ export default function Index() {
               <span className="inline-block px-3 py-1 rounded-full border border-praxia-blue/30 text-xs text-praxia-muted tracking-widest uppercase mb-4">
                 Nuestra propuesta
               </span>
-              <h2 className="text-3xl md:text-5xl font-black text-white mb-4">
+              <h2 className="text-3xl md:text-5xl font-black text-foreground mb-4">
                 Diseñamos e implementamos sistemas reales.
               </h2>
               <p className="text-praxia-muted max-w-xl mx-auto">
@@ -494,7 +494,7 @@ export default function Index() {
                   <div className="w-10 h-10 rounded-sm bg-praxia-blue/10 border border-praxia-blue/20 flex items-center justify-center flex-shrink-0 group-hover:bg-praxia-blue/20 group-hover:scale-110 transition-all">
                     <Icon size={18} className="text-praxia-blue-light" />
                   </div>
-                  <span className="text-white font-medium">{label}</span>
+                  <span className="text-foreground font-medium">{label}</span>
                 </div>
               ))}
             </div>
@@ -516,7 +516,7 @@ export default function Index() {
               <span className="inline-block px-3 py-1 rounded-full border border-praxia-blue/30 text-xs text-praxia-muted tracking-widest uppercase mb-4">
                 Proceso
               </span>
-              <h2 className="text-3xl md:text-5xl font-black text-white mb-4">Nuestro Método</h2>
+              <h2 className="text-3xl md:text-5xl font-black text-foreground mb-4">Nuestro Método</h2>
               <p className="text-praxia-muted max-w-xl mx-auto">
                 Un proceso probado en 5 fases que transforma tu operación en un sistema medible.
               </p>
@@ -536,7 +536,7 @@ export default function Index() {
                     </div>
                     <div className="flex-1 pb-8 border-b border-praxia-border/30 group-hover:border-praxia-blue/20 transition-colors">
                       <span className="text-praxia-blue text-xs font-mono mb-1 block">{fase.num}</span>
-                      <h3 className="text-xl font-bold text-white mb-2 group-hover:text-praxia-blue-light transition-colors">{fase.title}</h3>
+                      <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-praxia-blue-light transition-colors">{fase.title}</h3>
                       <p className="text-praxia-muted leading-relaxed">{fase.desc}</p>
                     </div>
                   </div>
@@ -567,7 +567,7 @@ export default function Index() {
               <span className="inline-block px-3 py-1 rounded-full border border-praxia-blue/30 text-xs text-praxia-muted tracking-widest uppercase mb-4">
                 Servicios
               </span>
-              <h2 className="text-3xl md:text-5xl font-black text-white mb-4">Lo que implementamos</h2>
+              <h2 className="text-3xl md:text-5xl font-black text-foreground mb-4">Lo que implementamos</h2>
               <p className="text-praxia-muted max-w-xl mx-auto">
                 Cada servicio está diseñado para resolver un problema concreto con resultados medibles.
               </p>
@@ -582,12 +582,12 @@ export default function Index() {
                   <div className="w-10 h-10 rounded-sm bg-praxia-blue/10 border border-praxia-blue/20 flex items-center justify-center mb-4 group-hover:bg-praxia-blue/20 transition-colors">
                     <Icon size={18} className="text-praxia-blue-light" />
                   </div>
-                  <h3 className="text-white font-bold text-lg mb-3">{title}</h3>
+                  <h3 className="text-foreground font-bold text-lg mb-3">{title}</h3>
                   <p className="text-praxia-muted text-sm mb-4 flex-1">{desc}</p>
                   <div className="border-t border-praxia-border pt-4 space-y-2">
                     <div>
                       <span className="text-xs text-praxia-blue tracking-widest uppercase font-semibold">Resultado</span>
-                      <p className="text-white text-sm mt-1">{resultado}</p>
+                      <p className="text-foreground text-sm mt-1">{resultado}</p>
                     </div>
                     <div>
                       <span className="text-xs text-praxia-muted tracking-widest uppercase font-semibold">Ideal para</span>
@@ -601,7 +601,7 @@ export default function Index() {
             <div className="mt-10 text-center">
               <Link
                 to="/servicios"
-                className="inline-flex items-center gap-2 px-8 py-3 rounded-sm border border-praxia-border text-white font-semibold hover:border-praxia-blue/60 hover:bg-praxia-surface/40 transition-all"
+                className="inline-flex items-center gap-2 px-8 py-3 rounded-sm border border-praxia-border text-foreground font-semibold hover:border-praxia-blue/60 hover:bg-praxia-surface/40 transition-all"
               >
                 Ver todos los servicios <ArrowRight size={16} />
               </Link>
@@ -622,7 +622,7 @@ export default function Index() {
           <span className="inline-block px-3 py-1 rounded-full border border-praxia-blue/30 text-xs text-praxia-muted tracking-widest uppercase mb-8">
             Por qué PRAXIA
           </span>
-          <h2 className="text-4xl md:text-6xl font-black text-white mb-8 leading-tight">
+          <h2 className="text-4xl md:text-6xl font-black text-foreground mb-8 leading-tight">
             No somos soporte técnico.
             <br />
             <span className="text-gradient-blue">Somos arquitectura estratégica.</span>
@@ -635,7 +635,7 @@ export default function Index() {
             ].map(({ title, body }, i) => (
               <div key={i} className="border border-praxia-border rounded-sm p-6 bg-praxia-dark hover:border-praxia-blue/40 hover:-translate-y-1 transition-all duration-300 group">
                 <div className="w-2 h-2 rounded-full bg-praxia-blue mb-4 group-hover:scale-150 transition-transform" />
-                <h3 className="text-white font-bold mb-2 group-hover:text-praxia-blue-light transition-colors">{title}</h3>
+                <h3 className="text-foreground font-bold mb-2 group-hover:text-praxia-blue-light transition-colors">{title}</h3>
                 <p className="text-praxia-muted text-sm">{body}</p>
               </div>
             ))}
@@ -653,7 +653,7 @@ export default function Index() {
             <span className="inline-block px-3 py-1 rounded-full border border-amber-900/40 text-xs text-amber-400 tracking-widest uppercase mb-4">
               Casos — Demo
             </span>
-            <h2 className="text-3xl md:text-5xl font-black text-white mb-4">Resultados reales</h2>
+            <h2 className="text-3xl md:text-5xl font-black text-foreground mb-4">Resultados reales</h2>
             <p className="text-praxia-muted max-w-xl mx-auto">
               Ejemplos representativos de transformaciones típicas en empresas que operaban con desorden.
             </p>
@@ -697,7 +697,7 @@ export default function Index() {
                   </div>
                   <div>
                     <p className="text-xs text-emerald-400 font-semibold uppercase tracking-wider mb-1">Después</p>
-                    <p className="text-white text-sm">{caso.after}</p>
+                    <p className="text-foreground text-sm">{caso.after}</p>
                   </div>
                 </div>
               </div>
@@ -711,7 +711,7 @@ export default function Index() {
               {sectores.map((s) => (
                 <span
                   key={s}
-                  className="px-4 py-1.5 border border-praxia-border rounded-full text-sm text-white bg-praxia-surface"
+                  className="px-4 py-1.5 border border-praxia-border rounded-full text-sm text-foreground bg-praxia-surface"
                 >
                   {s}
                 </span>
@@ -726,7 +726,7 @@ export default function Index() {
         <div className="absolute inset-0 grid-overlay opacity-40" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full bg-praxia-blue/8 blur-3xl pointer-events-none" />
         <div className="container mx-auto max-w-3xl px-6 text-center relative">
-          <h2 className="text-4xl md:text-6xl font-black text-white mb-6 leading-tight">
+          <h2 className="text-4xl md:text-6xl font-black text-foreground mb-6 leading-tight">
             Si tu empresa quiere operar como sistema,{" "}
             <span className="text-gradient-blue">hablemos.</span>
           </h2>
