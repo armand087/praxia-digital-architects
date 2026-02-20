@@ -10,15 +10,15 @@
 
 @layer base {
   :root {
-    /* Core palette — light (not used heavily, site is dark-first) */
-    --background: 0 0% 100%;
-    --foreground: 220 15% 8%;
+    /* Core palette — LIGHT MODE */
+    --background: 220 20% 97%;
+    --foreground: 220 15% 10%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 15% 8%;
+    --card-foreground: 220 15% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 15% 8%;
+    --popover-foreground: 220 15% 10%;
 
     /* Deep blue primary */
     --primary: 221 83% 33%;
@@ -27,41 +27,41 @@
     /* Light blue accent */
     --accent-blue: 214 89% 52%;
 
-    --secondary: 220 15% 96%;
-    --secondary-foreground: 220 15% 8%;
+    --secondary: 220 15% 92%;
+    --secondary-foreground: 220 15% 10%;
 
-    --muted: 220 14% 94%;
-    --muted-foreground: 220 10% 46%;
+    --muted: 220 14% 92%;
+    --muted-foreground: 220 10% 40%;
 
-    --accent: 220 14% 94%;
-    --accent-foreground: 220 15% 8%;
+    --accent: 220 14% 92%;
+    --accent-foreground: 220 15% 10%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 13% 88%;
-    --input: 220 13% 88%;
+    --border: 220 13% 82%;
+    --input: 220 13% 82%;
     --ring: 221 83% 33%;
 
     --radius: 0.375rem;
 
-    /* PRAXIA custom tokens */
-    --praxia-black: 220 15% 5%;
-    --praxia-dark: 220 15% 8%;
+    /* PRAXIA custom tokens — LIGHT MODE */
+    --praxia-black: 220 20% 95%;
+    --praxia-dark: 220 20% 98%;
     --praxia-blue: 221 83% 33%;
-    --praxia-blue-light: 214 89% 52%;
-    --praxia-blue-glow: 214 100% 65%;
-    --praxia-surface: 220 15% 10%;
-    --praxia-surface-2: 220 15% 13%;
-    --praxia-border: 220 15% 18%;
-    --praxia-text-muted: 220 10% 55%;
+    --praxia-blue-light: 214 89% 42%;
+    --praxia-blue-glow: 214 80% 55%;
+    --praxia-surface: 220 20% 93%;
+    --praxia-surface-2: 220 20% 89%;
+    --praxia-border: 220 15% 80%;
+    --praxia-text-muted: 220 10% 40%;
 
-    --gradient-hero: linear-gradient(135deg, hsl(220 15% 5%) 0%, hsl(221 50% 12%) 50%, hsl(220 15% 5%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(220 30% 92%) 0%, hsl(221 50% 88%) 50%, hsl(220 30% 92%) 100%);
     --gradient-blue: linear-gradient(135deg, hsl(221 83% 33%), hsl(214 89% 52%));
-    --gradient-card: linear-gradient(135deg, hsl(220 15% 10%), hsl(220 15% 13%));
+    --gradient-card: linear-gradient(135deg, hsl(220 20% 93%), hsl(220 20% 89%));
 
-    --shadow-blue: 0 0 40px -10px hsl(221 83% 33% / 0.4);
-    --shadow-card: 0 4px 24px -4px hsl(220 15% 5% / 0.3);
+    --shadow-blue: 0 0 40px -10px hsl(221 83% 33% / 0.25);
+    --shadow-card: 0 4px 24px -4px hsl(220 15% 50% / 0.15);
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -69,7 +69,7 @@
     --sidebar-primary-foreground: 0 0% 98%;
     --sidebar-accent: 240 4.8% 95.9%;
     --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
+    --sidebar-border: 220 13% 82%;
     --sidebar-ring: 221 83% 33%;
   }
 
@@ -101,6 +101,17 @@
     --border: 220 15% 18%;
     --input: 220 15% 18%;
     --ring: 214 89% 55%;
+
+    /* PRAXIA custom tokens — DARK MODE */
+    --praxia-black: 220 15% 5%;
+    --praxia-dark: 220 15% 8%;
+    --praxia-blue: 221 83% 33%;
+    --praxia-blue-light: 214 89% 52%;
+    --praxia-blue-glow: 214 100% 65%;
+    --praxia-surface: 220 15% 10%;
+    --praxia-surface-2: 220 15% 13%;
+    --praxia-border: 220 15% 18%;
+    --praxia-text-muted: 220 10% 55%;
 
     --sidebar-background: 220 15% 5%;
     --sidebar-foreground: 0 0% 90%;
@@ -230,7 +241,7 @@
   .img-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom, hsl(220 15% 5% / 0.75) 0%, hsl(220 15% 5% / 0.92) 100%);
+    background: linear-gradient(to bottom, hsl(var(--praxia-black) / 0.75) 0%, hsl(var(--praxia-black) / 0.92) 100%);
   }
 
   /* Counter animation */
