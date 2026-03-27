@@ -28,6 +28,7 @@ import {
 } from "recharts";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ROICalculator from "@/components/ROICalculator";
 import heroBg from "@/assets/hero-bg.jpg";
 import problemaBg from "@/assets/problema-bg.jpg";
 import dashboardPreview from "@/assets/dashboard-preview.jpg";
