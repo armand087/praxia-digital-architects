@@ -7,6 +7,8 @@
 */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&display=swap');
+/* Baloo 2 se usa solo en la página de El Dulcero (font-heading / .font-heading) */
 
 @layer base {
   :root {
@@ -141,6 +143,31 @@
 }
 
 @layer utilities {
+  /* El Dulcero: fuerza variables de shadcn en modo claro dentro de esta
+     página, sin importar el modo oscuro global de Praxia (ThemeProvider
+     usa defaultTheme="dark" para todo el sitio). */
+  .eldulcero-theme {
+    --background: 220 20% 97%;
+    --foreground: 220 15% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 15% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 15% 10%;
+    --primary: 221 83% 33%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 15% 92%;
+    --secondary-foreground: 220 15% 10%;
+    --muted: 220 14% 92%;
+    --muted-foreground: 220 10% 40%;
+    --accent: 220 14% 92%;
+    --accent-foreground: 220 15% 10%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 13% 82%;
+    --input: 220 13% 82%;
+    --ring: 221 83% 33%;
+  }
+
   /* Data grid overlay */
   .grid-overlay {
     background-image: 

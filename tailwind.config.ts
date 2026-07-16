@@ -15,6 +15,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+        heading: ['Baloo 2', 'Fredoka', 'Inter', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -59,6 +60,16 @@ export default {
           "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
+        },
+        // EL DULCERO brand tokens — paleta fija (independiente del modo claro/oscuro de Praxia)
+        dulce: {
+          rosa: "#F472B6",
+          amarillo: "#FACC15",
+          azul: "#38BDF8",
+          morado: "#C084FC",
+          crema: "#FFF9F0",
+          texto: "#3A2E39",
+          verde: "#4ADE80",
         },
         // PRAXIA brand tokens
         praxia: {
@@ -111,6 +122,7 @@ export default {
         "gradient-hero": "linear-gradient(135deg, hsl(220 15% 5%) 0%, hsl(221 50% 12%) 50%, hsl(220 15% 5%) 100%)",
         "gradient-blue": "linear-gradient(135deg, hsl(var(--praxia-blue)), hsl(var(--praxia-blue-light)))",
         "gradient-card": "linear-gradient(135deg, hsl(var(--praxia-surface)), hsl(var(--praxia-surface-2)))",
+        "dulce-gradient": "linear-gradient(135deg, #FDE6F3 0%, #FFF6D8 50%, #E0F2FE 100%)",
       },
     },
   },
