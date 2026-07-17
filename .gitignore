@@ -12,6 +12,10 @@ dist
 dist-ssr
 *.local
 
+# Odoo local (docker) — nunca subir contraseñas reales
+odoo/.env
+odoo/config/odoo.conf.local
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
